@@ -46,11 +46,11 @@ const useFirestorePagination = (
   const next = useCallback(() => {
     setPage((page) => page + 1);
     setCurrentQuery(query.startAfter(lastDoc).limit(currentLimit));
-  }, []);
+  }, [lastDoc]);
   const previous = useCallback(() => {
     setPage((page) => page - 1);
     setCurrentQuery(query.endBefore(firstDoc).limitToLast(currentLimit));
-  }, []);
+  }, [firstDoc]);
   const setLimit = useCallback((newLimit: number) => {
     setPage(0);
     setCurrentLimit(newLimit);
